@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 20px;
+}
+
+.search-container {
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+}
+.search-box {
+    top: 0;
+    position: sticky;
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+.search-box.sticky {
+    width: 640px;
+    transform: translateX(-50px);
+    margin: 0;
+    border-radius: 0;
+}
+
+.search-box:hover {
+    outline: none; /* Removes the outline */
+    border: none;
+}
+
+.search-box:focus {
+    outline: none; /* Removes the outline */
+    border: none;
+}
+
+textarea {
+    width: 100%;
+    height: 50px;
+    padding: 15px 50px 0 25px;
+    font-size: 16px; /* Font size */
+    font-family: sans-serif;
+    outline: none;
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 25px; /* Rounded corners for the input field */
+    resize: none; /* Disables manual resizing */
+    background: white;
+    z-index: 9;
+}
+
+textarea:hover {
+    border: 1px solid white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+textarea:focus {
+    outline: none; /* Removes the outline */
+    border: 1px solid white; /* Maintains the border color */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Keeps the shadow */
+}
+
+.search-icon {
+    position: relative;
+    left: calc(100% - 50px);
+    bottom: 85%;
+    width: 36px;
+    height: 36px;
+    filter: opacity(0.5);
+    object-fit: cover;
+    object-position: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#resultsContainer {
+    text-align: left; /* Aligns text to the left */
+    margin-top: 20px; /* Space above results */
+    margin-bottom: 150px;
+}
+
+.title-container {
+    width: 100%;
+    text-align: center;
+}
+
+.title-image {
+    width: 80%;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+
+.result-item {
+    width: 100%;
+    margin-bottom: 20px; /* Space between each result */
+}
+
+.result-hostname {
+    color: #202124; /* Dark color for contrast */
+    font-size: 12px; /* Regular size for hostname */
+}
+
+.result-url {
+    color: #5f6368; /* Grey color for URL */
+    font-size: 12px; /* Smaller size for URL */
+    margin-bottom: 4px; /* Space between URL and title */
+}
+
+.result-title {
+    color: #1a0dab; /* Blue color for title, typical for links */
+    position: relative;
+    font-size: 20px; /* Larger size for title */
+    margin-bottom: 4px; /* Space between title and snippet */
+}
+
+.result-link, .result-url {
+    display: inline-block;
+    white-space: nowrap; /* Prevents the text from wrapping to the next line */
+    overflow: hidden; /* Hides text that goes beyond the bounds of the container */
+    text-overflow: ellipsis; /* Adds an ellipsis to text that is cut off */
+    max-width: 100%; /* Ensures the div does not exceed the width of its container */
+}
+
+.result-snippet {
+    color: #202124; /* Matching the hostname color for consistency */
+    font-size: 14px; /* Regular size for the snippet text */
+}
+
+.popup {
+    display: none; /* Initially don't display the popup */
+    position: absolute;
+    top: 22px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    overflow: auto; /* Make it scrollable */
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+.autocomplete-list {
+    position: absolute;
+    padding-bottom: 25px;
+    top: 50px;
+    background-color: white;
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 4;
+    border-radius: 0 0 25px 25px;
+    display: none; /* Initially hidden */
+}
+
+.autocomplete-list div {
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+}
+
+.autocomplete-list div:hover {
+    background-color: #f0f0f0;
+}
+
+.autocomplete-list div.active {
+    background-color: #f0f0f0;
+}
+
+
+/* loading element */
+
+.loading-wrapper {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1000; /* High z-index to cover the content */
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-box {
+    display: flex;
+    max-width: 60px;
+    margin: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.loading-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #64CFE1;
+}
+
+
+.rotate {
+    animation: rotate 1s ease-in-out infinite alternate
+}
+
+/* Keyframes */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    100% {
+        transform: rotate(360deg) scale(.7);
+    }
+}
+
+

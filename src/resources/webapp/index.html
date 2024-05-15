@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Regeggs</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+</head>
+<body>
+<div class="search-container">
+  <div class="title-container">
+    <img src="icons/title.png" alt="Regeggs" onclick="refreshPage()" class="title-image">
+  </div>
+  <div id="searchBox" class="search-box">
+    <textarea id="searchQuery" placeholder="Enter search term..."></textarea>
+    <img src="icons/searchicon.svg" alt="Search" onclick="fetchSearchResults()" class="search-icon">
+    <div id="autocompleteList" class="autocomplete-list"></div>
+  </div>
+  <div class="loading-wrapper">
+    <div class="loading-box">
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+    </div>
+  </div>
+  <div id="resultsContainer"></div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
