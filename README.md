@@ -17,12 +17,9 @@ Welcome to the Regeggs Search Engine repository! This project harnesses the powe
 # How to run the code locally:
 Clone the main repository
 
-For testing purpose: we recommand keeping the amount of pages crawled small, please sign-in with SEAS account first to download the files needed for the 20k pages: 
-- [Download Pagerank Table](https://drive.google.com/file/d/12irFzDdmYJ9t1ULqrHjHZStoNkcC_TwM/view?usp=drive_link)
-- [Download TFIDF Table](https://drive.google.com/file/d/1GjLlIhaIiYorzPvjO1kgAZVdx1Z41pQV/view?usp=drive_link)
-- [Download Crawl Table](https://drive.google.com/file/d/16AuMBUi9zhVtRCQf1oZliALb2amJFetf/view?usp=drive_link)
+For testing purpose: we recommand keeping the amount of pages crawled small (<100k pages), please run Crawler, Indexer and PageRank classes with desired kvs and flame workers for this task. 
 
-After download please unzip the three tables under worker1/ and make sure that the three table directories are named as: **"pt-crawl"**, **"pt-pageranks"** and **"pt-TFIDF"**, this is to ensure consistency with the default file path we used. 
+After completing the jobs, place the three tables under worker1/ and make sure that the three table directories are named as: **"pt-crawl"**, **"pt-pageranks"** and **"pt-TFIDF"**, this is to ensure consistency with the default file path we used. 
 
 In the root directory of this project, run script.sh, this will compile and run required classes together (you may specify any desired number of flame/kvs workers in script.sh):
 ```
