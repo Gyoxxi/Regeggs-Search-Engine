@@ -10,7 +10,7 @@ Welcome to the Regeggs Search Engine repository! This project harnesses the powe
 - Advanced Analytics: Implements algorithms for PageRank and TFIDF calculations, providing a strong foundation for relevant and accurate search results.
 - User-Friendly Interface: Hosts a search server with a beautifully designed user interface that makes navigation and usage straightforward for end-users.
 
-# Approved third-party components used:
+# Third-party components used:
 - [Apache OpenNLP](https://opennlp.apache.org/) (SentenceDetector) for analyzing page content and extracting meaningful information as snippets in search results
 - [466k words.txt](https://github.com/dwyl/english-words/tree/master) for autocompleting English search terms while user typing in search bar
 
