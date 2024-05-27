@@ -19,7 +19,7 @@ Clone the main repository
 
 For testing purpose: we recommand keeping the amount of pages crawled small (<100k pages), please run Crawler, Indexer and PageRank classes with desired kvs and flame workers for this task. 
 
-After completing the jobs, place the three tables under worker1/ and make sure that the three table directories are named as: **"pt-crawl"**, **"pt-pageranks"** and **"pt-TFIDF"**, this is to ensure consistency with the default file path we used. 
+After completing the jobs, place the three tables under worker1/ inside the project directory, and make sure that the three tables' directories are named as: **"pt-crawl"**, **"pt-pageranks"** and **"pt-TFIDF"**, this is to ensure consistency with the default file path we used for the search server. 
 
 In the root directory of this project, run script.sh, this will compile and run required classes together (you may specify any desired number of flame/kvs workers in script.sh):
 ```
